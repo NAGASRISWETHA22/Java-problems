@@ -16,26 +16,23 @@ public class RomanToInteger {
             return 1000;
         return -1;
     }
-
     // returns decimal value of roman numeral
     static int romanToDecimal(String s) {
         int res = 0; 
 
         for (int i = 0; i < s.length(); i++) {
-            
-            //get value of current symbol
-            int s1 = value(s.charAt(i));
+            int s1 = value(s.charAt(i));//get value of current symbol
 
             // compare with the next symbol if it exists
             if (i + 1 < s.length()) {
                 int s2 = value(s.charAt(i + 1));
 
-                // If current value is greater or equal, add it to result
+                // If current value is greater or equal add it to result
                 if (s1 >= s2) {
                     res += s1;
                 }
                 else {
-                    // else, add the difference and skip next symbol
+                    // else add the difference and skip next symbol
                     res += (s2 - s1);
                     i++;
                 }
@@ -47,7 +44,6 @@ public class RomanToInteger {
 
         return res;
     }
-
     public static void main(String[] args) {
         String s = "IX";
         System.out.println(romanToDecimal(s));
